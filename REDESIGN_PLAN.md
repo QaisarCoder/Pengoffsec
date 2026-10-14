@@ -1,0 +1,13 @@
+# PengOffSec Redesign Iteration Plan
+- [ ] Section 1: Navigation Refinement (Add 'Process', 'Insights')
+- [ ] Section 2: Hero (Re-align, refine typography, ensure 3D canvas panel)
+- [ ] Section 3: Capability Strip (Proof Points)
+- [ ] Section 4: Services CMS Integration (Cybersecurity/Software Groups)
+- [ ] Section 5: Interactive Attack Surface Visual (Conceptual)
+- [ ] Section 6: Process Timeline (Interactive)
+- [ ] Section 7: Selected Work (Database-backed)
+- [ ] Section 8: Why PengOffSec (Editorial blocks)
+- [ ] Section 9: Build/Secure Split Section
+- [ ] Section 10: Free Security Check CTA
+- [ ] Section 11: Final Contact Form + Footer
+- [ ] Section 12: QA & Responsive Polish

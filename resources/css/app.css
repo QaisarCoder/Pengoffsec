@@ -1,0 +1,305 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --coral: 244 87 45;
+        --coral-dark: 224 62 23;
+        --ink: 28 25 23;
+    }
+
+    html {
+        scroll-behavior: smooth;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+        @apply bg-white text-ink-900 font-sans;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        @apply text-ink-900 tracking-tight;
+    }
+
+    ::selection {
+        @apply bg-brand-500/15 text-brand-700;
+    }
+
+    :focus-visible {
+        @apply outline-none ring-2 ring-brand-500 ring-offset-2 ring-offset-white;
+    }
+}
+
+@layer components {
+    /* ---------- Layout ---------- */
+    .container-wide {
+        @apply max-w-wide mx-auto px-6 lg:px-8;
+    }
+
+    .section {
+        @apply py-16 md:py-24 lg:py-28;
+    }
+
+    .section-muted {
+        @apply bg-ink-50;
+    }
+
+    /* ---------- Decorative ---------- */
+    .security-grid {
+        background-image:
+            linear-gradient(to right, rgba(28, 25, 23, 0.04) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(28, 25, 23, 0.04) 1px, transparent 1px);
+        background-size: 72px 72px;
+    }
+
+    .security-grid-mask {
+        -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 40%, transparent 100%);
+        mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 40%, transparent 100%);
+    }
+
+    .dot-grid {
+        background-image: radial-gradient(rgba(28, 25, 23, 0.10) 1px, transparent 1px);
+        background-size: 24px 24px;
+    }
+
+    .glow-coral {
+        background: radial-gradient(circle at center, rgba(201, 55, 15, 0.13), transparent 70%);
+    }
+
+    /* Confines a decorative glow to the top edge so it never sits behind body copy. */
+    .hero-glow {
+        -webkit-mask-image: radial-gradient(ellipse 55% 50% at 50% 0%, #000 20%, transparent 78%);
+        mask-image: radial-gradient(ellipse 55% 50% at 50% 0%, #000 20%, transparent 78%);
+    }
+
+    /* ---------- Typography helpers ---------- */
+    .eyebrow {
+        @apply inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-brand-600;
+    }
+
+    .display-xl {
+        @apply text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.02] tracking-tight;
+    }
+
+    .display-lg {
+        @apply text-4xl md:text-5xl font-extrabold leading-[1.08] tracking-tight;
+    }
+
+    .display-md {
+        @apply text-3xl md:text-4xl font-bold leading-[1.15] tracking-tight;
+    }
+
+    .lede {
+        @apply text-lg md:text-xl text-ink-500 leading-relaxed;
+    }
+
+    .prose-body {
+        @apply text-ink-600 leading-relaxed;
+    }
+
+    /* ---------- Surfaces ---------- */
+    .card {
+        @apply bg-white border border-ink-200 rounded-2xl shadow-card;
+    }
+
+    .card-interactive {
+        @apply card transition-all duration-300 hover:border-brand-300 hover:shadow-card-hover hover:-translate-y-1;
+    }
+
+    .icon-chip {
+        @apply w-12 h-12 rounded-xl bg-brand-50 text-brand-600 border border-brand-100 flex items-center justify-center transition-colors duration-300;
+    }
+
+    .group:hover .icon-chip {
+        @apply bg-brand-600 text-white border-brand-600;
+    }
+
+    /* ---------- Buttons ---------- */
+    .btn {
+        @apply inline-flex items-center justify-center gap-2 rounded-full font-semibold text-sm transition-all duration-200 select-none;
+    }
+
+    .btn-primary {
+        @apply btn px-6 py-3 bg-brand-600 text-white hover:bg-brand-700 hover:shadow-lg hover:shadow-brand-600/20 active:scale-[0.98];
+    }
+
+    .btn-dark {
+        @apply btn px-6 py-3 bg-ink-900 text-white hover:bg-ink-800 active:scale-[0.98];
+    }
+
+    .btn-secondary {
+        @apply btn px-6 py-3 bg-white text-ink-800 border border-ink-300 hover:border-ink-900 hover:bg-ink-50 active:scale-[0.98];
+    }
+
+    .btn-sm {
+        @apply px-4 py-2 text-xs;
+    }
+
+    /* ---------- Forms ---------- */
+    .label-field {
+        @apply block text-sm font-medium text-ink-700 mb-2;
+    }
+
+    .input-field {
+        @apply w-full rounded-xl border border-ink-200 bg-white px-4 py-3 text-sm text-ink-900 placeholder-ink-600 shadow-sm transition duration-200;
+    }
+
+    .input-field:focus {
+        @apply border-brand-400 ring-4 ring-brand-500/10 outline-none;
+    }
+
+    select.input-field {
+        @apply pr-10 appearance-none bg-no-repeat;
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%2378716c' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+        background-position: right 0.75rem center;
+        background-size: 1.25em 1.25em;
+    }
+
+    /* ---------- Feedback ---------- */
+    .alert-success {
+        @apply rounded-xl border border-emerald-200 bg-emerald-50 px-5 py-4 text-sm font-medium text-emerald-800;
+    }
+
+    .badge {
+        @apply inline-flex items-center gap-2 px-3 py-1 rounded-full border border-brand-200 bg-brand-50 text-xs font-semibold text-brand-700;
+    }
+
+    .badge-dot {
+        @apply w-1.5 h-1.5 rounded-full bg-brand-500 animate-pulse-soft;
+    }
+
+    /* ---------- Tables (admin) ----------
+       The table itself must NOT be the scroll container: `overflow` is ignored
+       on <table>, and `border-collapse` additionally defeats border-radius.
+       So a .table-scroll wrapper owns overflow + rounding, and the inner
+       .table-grid uses border-spacing to draw clean separators. */
+    .table-scroll {
+        @apply w-full mt-8 overflow-x-auto overflow-y-hidden rounded-2xl border border-ink-200 bg-white shadow-card;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .table-grid {
+        @apply w-full min-w-[640px] border-spacing-0 text-sm;
+    }
+
+    .table-grid thead th {
+        @apply sticky top-0 z-10 border-b border-ink-200 bg-ink-50 px-5 py-3.5 text-left align-middle text-xs font-semibold uppercase tracking-wider text-ink-600;
+    }
+
+    .table-grid tbody td {
+        @apply border-b border-ink-100 px-5 py-4 align-middle text-ink-700;
+    }
+
+    .table-grid tbody tr:last-child td {
+        @apply border-b-0;
+    }
+
+    .table-grid tbody tr {
+        @apply transition-colors duration-150 hover:bg-brand-50/40;
+    }
+
+    /* Primary cell in each row reads as the row's identity. */
+    .table-grid .cell-primary {
+        @apply font-semibold text-ink-900;
+    }
+
+    .table-grid .cell-muted {
+        @apply text-ink-500;
+    }
+
+    /* Row action buttons */
+    .table-action {
+        @apply inline-flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-xs font-semibold transition-colors duration-150;
+    }
+
+    .table-action-edit {
+        @apply table-action text-ink-700 hover:bg-ink-900 hover:text-white;
+    }
+
+    .table-action-danger {
+        @apply table-action text-red-600 hover:bg-red-50 hover:text-red-700;
+    }
+
+    /* ---------- Admin status pills ---------- */
+    .status-pill {
+        @apply inline-flex items-center gap-1.5 whitespace-nowrap rounded-full border px-2.5 py-1 text-xs font-semibold;
+    }
+
+    .status-new,
+    .status-pending {
+        @apply status-pill border-amber-200 bg-amber-50 text-amber-800;
+    }
+
+    .status-contacted,
+    .status-in_progress {
+        @apply status-pill border-sky-200 bg-sky-50 text-sky-800;
+    }
+
+    .status-converted,
+    .status-completed {
+        @apply status-pill border-emerald-200 bg-emerald-50 text-emerald-800;
+    }
+
+    .status-closed,
+    .status-cancelled {
+        @apply status-pill border-ink-200 bg-ink-100 text-ink-600;
+    }
+
+    /* Neutral chip for categories/tags, distinct from status pills. */
+    .chip-neutral {
+        @apply inline-flex items-center rounded-full border border-ink-200 bg-ink-50 px-2.5 py-1 text-xs font-semibold text-ink-700;
+    }
+
+    /* ---------- Admin empty state ---------- */
+    .empty-state {
+        @apply flex flex-col items-center justify-center px-6 py-16 text-center;
+    }
+
+    .empty-state-icon {
+        @apply mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-ink-100 text-ink-500;
+    }
+
+    /* ---------- Admin toolbar (search + filters) ---------- */
+    .toolbar {
+        @apply mt-8 flex flex-col gap-3 rounded-2xl border border-ink-200 bg-white p-4 shadow-card sm:flex-row sm:items-center;
+    }
+
+    .search-field {
+        @apply w-full rounded-xl border border-ink-200 bg-ink-50 py-2.5 pl-10 pr-4 text-sm text-ink-900 placeholder-ink-600 transition duration-200;
+    }
+
+    .search-field:focus {
+        @apply border-brand-400 bg-white ring-4 ring-brand-500/10 outline-none;
+    }
+
+    /* ---------- Nav ---------- */
+    .nav-link {
+        @apply relative text-sm font-medium text-ink-600 transition-colors duration-200 hover:text-ink-900;
+    }
+
+    .nav-link-active {
+        @apply text-ink-900 font-semibold;
+    }
+
+    .nav-link-active::after {
+        content: '';
+        @apply absolute -bottom-1.5 left-0 right-0 h-0.5 rounded-full bg-brand-500;
+    }
+}
+
+@layer utilities {
+    [x-cloak] {
+        display: none !important;
+    }
+
+    .text-balance {
+        text-wrap: balance;
+    }
+
+    .mask-fade-y {
+        -webkit-mask-image: linear-gradient(to bottom, transparent, #000 20%, #000 80%, transparent);
+        mask-image: linear-gradient(to bottom, transparent, #000 20%, #000 80%, transparent);
+    }
+}
